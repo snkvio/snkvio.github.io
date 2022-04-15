@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/snkvio.github.io/static/css/main.90d280db.css",
-    "main.js": "/snkvio.github.io/static/js/main.3178e5b1.js",
+    "main.js": "/snkvio.github.io/static/js/main.c268faf1.js",
     "static/js/787.95957579.chunk.js": "/snkvio.github.io/static/js/787.95957579.chunk.js",
     "static/media/layer-2.png": "/snkvio.github.io/static/media/layer-2.922f2b04a1a30a1415fa.png",
     "static/media/drip.gif": "/snkvio.github.io/static/media/drip.77df0516af631cea2543.gif",
@@ -22,11 +22,11 @@
     "static/media/drip.png": "/snkvio.github.io/static/media/drip.364e7d4197ee867550dd.png",
     "index.html": "/snkvio.github.io/index.html",
     "main.90d280db.css.map": "/snkvio.github.io/static/css/main.90d280db.css.map",
-    "main.3178e5b1.js.map": "/snkvio.github.io/static/js/main.3178e5b1.js.map",
+    "main.c268faf1.js.map": "/snkvio.github.io/static/js/main.c268faf1.js.map",
     "787.95957579.chunk.js.map": "/snkvio.github.io/static/js/787.95957579.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.90d280db.css",
-    "static/js/main.3178e5b1.js"
+    "static/js/main.c268faf1.js"
   ]
 }
