@@ -3,6 +3,7 @@ import logo from '../../img/logo.png';
 import manWalkingWithSneakers from '../../img/man-walking-with-sneakers.GIF';
 import threeMenWalking from '../../img/three-men-walking.png';
 import roadmap from '../../img/roadmap.png';
+import roadmap2 from '../../img/roadmap-2.jpg';
 import carlo from '../../img/Carlo.png';
 import david from '../../img/David.PNG';
 import joseph from '../../img/Joseph.png';
@@ -28,7 +29,7 @@ function Home(props) {
             <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-color-1">
                 <div className="container py-2">
                     <a className="navbar-brand" href="#">
-                        <img src={logo} />
+                        <img src={logo} alt="Sneakerverse" />
                     </a>
 
                     <div className="d-flex d-lg-none">
@@ -81,10 +82,10 @@ function Home(props) {
             {/* Header */}
             <div className="bg-color-1 overflow-hidden">
                 <div className="container">
-                    <div className="row">
-                        <div className="col-lg-6 min-vh-100 d-flex align-items-center">
+                    <div className="row position-relative">
+                        <div className="col-lg-6 min-vh-100 d-flex align-items-center position-relative" id="header-section-1" style={{"zIndex":"1"}}>
                             <div className="w-100">
-                                <h2 className="text-center text-color-1 font-weight-900 font-size-250 font-size-md-300 font-size-lg-360 font-size-xl-420 font-size-xxl-470 mb-4 pb-md-2">SNEAKERVERSE</h2>
+                                <h2 className="text-center text-color-1 font-weight-900 font-size-250 font-size-sm-360 font-size-xl-420 font-size-xxl-470 mb-4 pb-md-2">SNEAKERVERSE</h2>
 
                                 <div className="text-center mb-4 mb-md-5">
                                     <button className="btn btn-custom-2 py-3 px-5">
@@ -96,26 +97,28 @@ function Home(props) {
                             </div>
                         </div>
 
-                        <div className="col-lg-6" style={{"paddingTop":"101px", "minHeight":"calc(100vh + 80px)"}}>
-                            <img src={manWalkingWithSneakers} className="h-100" />
+                        <div className="col-lg-6" id="walking-container">
+                            <img src={manWalkingWithSneakers} className="h-100 position-relative" style={{"minHeight":"calc(100vh - 40px)", "zIndex":"0"}} alt="man walking with sneakers" />
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div className="background-image-cover background-image-1 position-relative" style={{"minHeight":"140px", "zIndex":"1", "backgroundPosition":"top"}}></div>
+            <div className="background-image-cover background-image-1 position-relative" style={{"minHeight":"140px", "zIndex":"1", "backgroundPosition":"top", "marginTop":"-1px"}}></div>
 
-            <div className="background-image-cover background-image-2 position-relative" style={{"marginTop":"-100px", "zIndex":"0", "minHeight":"calc(100vh + 100px)"}}>
+            <div className="background-image-cover background-image-2 position-relative" style={{"marginTop":"-100px", "zIndex":"0"}}>
                 <div id="about-us" className="position-absolute invisible" style={{"top":"-100px"}}></div>
-                <div className="container">
-                    <div className="row align-items-center">
-                        <div className="col-md-7 pe-0">
-                            <img src={threeMenWalking} className="w-100" />
-                        </div>
+                <div className="container pb-5">
+                    <div className="pb-5">
+                        <div className="row align-items-lg-center pb-5">
+                            <div className="col-lg-7 pe-lg-0 mb-5 mb-md-0">
+                                <img src={threeMenWalking} className="w-100" alt="three men walking" />
+                            </div>
 
-                        <div className="col-md-5">
-                            <h2 className="text-center text-color-2 font-weight-800 font-size-370 mb-4">ABOUT US</h2>
-                            <p className="text-center text-color-2 font-weight-500 font-size-150 mb-0" style={{"lineHeight":"1.7em"}}>Sneakerverse is an NFT collection made to represent the sneaker scene and streetwear fashion in the Philippines, created by a group of people with the same love for the culture.</p>
+                            <div className="col-lg-5 pt-md-5 pt-lg-0 mb-5 mb-lg-0">
+                                <h2 className="text-center text-color-2 font-weight-800 font-size-300 font-size-xl-370 mb-3 mb-xl-4 mt-lg-5 pt-lg-5 pt-lg-0 pt-xl-5">ABOUT US</h2>
+                                <p className="text-center text-color-2 font-weight-500 font-size-120 font-size-xl-150 mb-0" style={{"lineHeight":"1.7em"}}>Sneakerverse is an NFT collection made to represent the sneaker scene and streetwear fashion in the Philippines, created by a group of people with the same love for the culture.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -125,9 +128,9 @@ function Home(props) {
                 <div id="vision" className="position-absolute invisible" style={{"top":"0px"}}></div>
                 <div className="container">
                     <div className="d-flex align-items-center min-vh-100">
-                        <div className="px-5">
-                            <h2 className="text-center text-color-2 font-weight-800 font-size-370 pt-5 my-5">VISION</h2>
-                            <p className="text-center text-color-2 font-weight-500 font-size-190 mb-5" style={{"lineHeight":"1.7em"}}>SNKV aims to build a platform for all, especially for the sneakerheads, wherein they can connect and reignite their passion and love for the culture. The project focuses on making NFTs in diverse styles to connect and represent each of the members' sense of fashion. SNKV values inclusivity and it wants to educate everyone about how Sneakers, Fashion, and Streetwear can go beyond what we expect them to be.</p>
+                        <div className="px-sm-5">
+                            <h2 className="text-center text-color-2 font-weight-800 font-size-300 font-size-xl-370 pt-5 my-5">VISION</h2>
+                            <p className="text-center text-color-2 font-weight-500 font-size-120 font-size-xl-150 mb-5" style={{"lineHeight":"1.7em"}}>SNKV aims to build a platform for all, especially for the sneakerheads, wherein they can connect and reignite their passion and love for the culture. The project focuses on making NFTs in diverse styles to connect and represent each of the members' sense of fashion. SNKV values inclusivity and it wants to educate everyone about how Sneakers, Fashion, and Streetwear can go beyond what we expect them to be.</p>
                         </div>
                     </div>
                 </div>
@@ -136,25 +139,28 @@ function Home(props) {
             <div className="bg-color-1 position-relative">
                 <div id="roadmap" className="position-absolute invisible" style={{"top":"-50px"}}></div>
                 <div className="container py-5">
-                    <h2 className="text-center text-color-1 font-weight-800 font-size-370 my-5">ROADMAP</h2>
-                    <img src={roadmap} className="w-100 mb-5" />
+                    <h2 className="text-center text-color-1 font-weight-800 font-size-300 font-size-xl-370 my-5">ROADMAP</h2>
+                    <img src={roadmap} className="w-100 mb-5 d-none d-lg-block" alt="sneakerverse roadmap" />
+                    <img src={roadmap2} className="w-100 mb-5 d-block d-lg-none" alt="sneakerverse roadmap" />
                 </div>
             </div>
 
             <div className="container py-5 position-relative">
                 <div id="core" className="position-absolute invisible" style={{"top":"-50px"}}></div>
-                <h2 className="text-center text-color-2 font-weight-800 font-size-370 my-5">CORE</h2>
+                <h2 className="text-center text-color-2 font-weight-800 font-size-300 font-size-xl-370 my-5">CORE</h2>
 
                 <div className="row mb-5">
-                    <div className="col-md-3 mb-4">
-                        <div className="card border-radius-0 border-0 cursor-pointer position-relative overflow-hidden" onMouseOver={viewTeamDescription} onMouseOut={hideTeamDescription}>
-                            <img src={joseph} className="w-100" />
-                            <div className="bg-color-1 px-5 py-4">
-                                <p className="text-white text-center font-weight-600 mb-1">Joseph Kern</p>
-                                <p className="text-white text-center fst-italic font-size-70 mb-2">Core &amp; Project Lead</p>
+                    <div className="col-sm-6 col-lg-3 pb-4">
+                        <div className="card border-radius-0 border-0 cursor-pointer position-relative overflow-hidden h-100" onMouseOver={viewTeamDescription} onMouseOut={hideTeamDescription}>
+                            <div className="d-flex flex-column h-100">
+                                <img src={joseph} className="w-100" alt="sneakerverse joseph kern" />
+                                <div className="bg-color-1 p-4 flex-fill">
+                                    <p className="text-white text-center font-weight-600 mb-1">Joseph Kern</p>
+                                    <p className="text-white text-center fst-italic font-size-70 mb-2">Core &amp; Project Lead</p>
+                                </div>
                             </div>
 
-                            <div className="team-description position-absolute w-100 h-100 bg-color-1 p-4" style={{"transition":"0.4s", "top":"100%"}}>
+                            <div className="team-description position-absolute w-100 h-100 bg-color-1 p-4 overflow-auto" style={{"transition":"0.4s", "top":"100%"}}>
                                 <div className="d-flex justify-content-end mb-3">
                                     <a className="btn btn-custom-1 d-flex align-items-center justify-content-center" href="https://twitter.com/NftSeph" target="_blank">
                                         <i className="fab fa-twitter font-size-140"></i>
@@ -169,15 +175,17 @@ function Home(props) {
                         </div>
                     </div>
 
-                    <div className="col-md-3 mb-4">
-                        <div className="card border-radius-0 border-0 cursor-pointer position-relative overflow-hidden" onMouseOver={viewTeamDescription} onMouseOut={hideTeamDescription}>
-                            <img src={joseph} className="w-100" />
-                            <div className="bg-color-1 px-5 py-4">
-                                <p className="text-white text-center font-weight-600 mb-1">Gian Gary Caringal</p>
-                                <p className="text-white text-center fst-italic font-size-70 mb-2">Core &amp; Artist</p>
+                    <div className="col-sm-6 col-lg-3 pb-4">
+                        <div className="card border-radius-0 border-0 cursor-pointer position-relative overflow-hidden h-100" onMouseOver={viewTeamDescription} onMouseOut={hideTeamDescription}>
+                            <div className="d-flex flex-column h-100">
+                                <img src={joseph} className="w-100" alt="sneakerverse gian caringal" />
+                                <div className="bg-color-1 p-4 flex-fill">
+                                    <p className="text-white text-center font-weight-600 mb-1">Gian Gary Caringal</p>
+                                    <p className="text-white text-center fst-italic font-size-70 mb-2">Core &amp; Artist</p>
+                                </div>
                             </div>
 
-                            <div className="team-description position-absolute w-100 h-100 bg-color-1 p-4" style={{"transition":"0.4s", "top":"100%"}}>
+                            <div className="team-description position-absolute w-100 h-100 bg-color-1 p-4 overflow-auto" style={{"transition":"0.4s", "top":"100%"}}>
                                 <div className="d-flex justify-content-end mb-3">
                                     <a className="btn btn-custom-1 d-flex align-items-center justify-content-center" href="https://twitter.com/nftgsquared" target="_blank">
                                         <i className="fab fa-twitter font-size-140"></i>
@@ -192,15 +200,17 @@ function Home(props) {
                         </div>
                     </div>
 
-                    <div className="col-md-3 mb-4">
-                        <div className="card border-radius-0 border-0 cursor-pointer position-relative overflow-hidden" onMouseOver={viewTeamDescription} onMouseOut={hideTeamDescription}>
-                            <img src={carlo} className="w-100" />
-                            <div className="bg-color-1 px-5 py-4">
-                                <p className="text-white text-center font-weight-600 mb-1">Carlo Miguel Angeles</p>
-                                <p className="text-white text-center fst-italic font-size-70 mb-2">Core &amp; Artist</p>
+                    <div className="col-sm-6 col-lg-3 pb-4">
+                        <div className="card border-radius-0 border-0 cursor-pointer position-relative overflow-hidden h-100" onMouseOver={viewTeamDescription} onMouseOut={hideTeamDescription}>
+                            <div className="d-flex flex-column h-100">
+                                <img src={carlo} className="w-100" alt="sneakerverse carlo miguel angeles" />
+                                <div className="bg-color-1 p-4 flex-fill">
+                                    <p className="text-white text-center font-weight-600 mb-1">Carlo Miguel Angeles</p>
+                                    <p className="text-white text-center fst-italic font-size-70 mb-2">Core &amp; Artist</p>
+                                </div>
                             </div>
 
-                            <div className="team-description position-absolute w-100 h-100 bg-color-1 p-4" style={{"transition":"0.4s", "top":"100%"}}>
+                            <div className="team-description position-absolute w-100 h-100 bg-color-1 p-4 overflow-auto" style={{"transition":"0.4s", "top":"100%"}}>
                                 <div className="d-flex justify-content-end mb-3">
                                     <a className="btn btn-custom-1 d-flex align-items-center justify-content-center" href="https://twitter.com/HidroxNFTs" target="_blank">
                                         <i className="fab fa-twitter font-size-140"></i>
@@ -215,15 +225,17 @@ function Home(props) {
                         </div>
                     </div>
 
-                    <div className="col-md-3 mb-4">
-                        <div className="card border-radius-0 border-0 cursor-pointer position-relative overflow-hidden" onMouseOver={viewTeamDescription} onMouseOut={hideTeamDescription}>
-                            <img src={david} className="w-100" />
-                            <div className="bg-color-1 px-5 py-4">
-                                <p className="text-white text-center font-weight-600 mb-1">David Alessandro Castor</p>
-                                <p className="text-white text-center fst-italic font-size-70 mb-2">Core &amp; Artist</p>
+                    <div className="col-sm-6 col-lg-3 pb-4">
+                        <div className="card border-radius-0 border-0 cursor-pointer position-relative overflow-hidden h-100" onMouseOver={viewTeamDescription} onMouseOut={hideTeamDescription}>
+                            <div className="d-flex flex-column h-100">
+                                <img src={david} className="w-100" alt="sneakerverse david alessandro castor" />
+                                <div className="bg-color-1 p-4 flex-fill">
+                                    <p className="text-white text-center font-weight-600 mb-1">David Alessandro Castor</p>
+                                    <p className="text-white text-center fst-italic font-size-70 mb-2">Core &amp; Artist</p>
+                                </div>
                             </div>
 
-                            <div className="team-description position-absolute w-100 h-100 bg-color-1 p-4" style={{"transition":"0.4s", "top":"100%"}}>
+                            <div className="team-description position-absolute w-100 h-100 bg-color-1 p-4 overflow-auto" style={{"transition":"0.4s", "top":"100%"}}>
                                 <div className="d-flex justify-content-end mb-3">
                                     <a className="btn btn-custom-1 d-flex align-items-center justify-content-center" href="#" target="_blank">
                                         <i className="fab fa-twitter font-size-140"></i>
@@ -243,15 +255,17 @@ function Home(props) {
             <div className="bg-color-1 position-relative">
                 <div id="team" className="position-absolute invisible" style={{"top":"-50px"}}></div>
                 <div className="container py-5">
-                    <h2 className="text-center text-white font-weight-800 font-size-370 my-5">TEAM</h2>
+                    <h2 className="text-center text-white font-weight-800 font-size-300 font-size-xl-370 my-5">TEAM</h2>
 
-                    <div className="row justify-content-center mb-5">
-                        <div className="col-md-3 mb-4">
-                            <div className="card border-radius-0 border-0 cursor-pointer position-relative overflow-hidden" onMouseOver={viewTeamDescription} onMouseOut={hideTeamDescription}>
-                                <img src={prototype} className="w-100" />
-                                <div className="bg-color-2 px-5 py-4">
-                                    <p className="text-color-2 text-center font-weight-600 mb-1">Cee Jay Tomas</p>
-                                    <p className="text-color-2 text-center fst-italic font-size-70 mb-2">Marketing Specialist</p>
+                    <div className="row justify-content-center">
+                        <div className="col-sm-6 col-lg-3 pb-4">
+                            <div className="card border-radius-0 border-0 cursor-pointer position-relative overflow-hidden h-100" onMouseOver={viewTeamDescription} onMouseOut={hideTeamDescription}>
+                                <div className="d-flex flex-column h-100">
+                                    <img src={prototype} className="w-100" alt="prototype" />
+                                    <div className="bg-color-2 px-5 py-4 flex-fill">
+                                        <p className="text-color-2 text-center font-weight-600 mb-1">Cee Jay Tomas</p>
+                                        <p className="text-color-2 text-center fst-italic font-size-70 mb-2">Marketing Specialist</p>
+                                    </div>
                                 </div>
 
                                 <div className="team-description position-absolute bg-color-2 w-100 h-100 p-4" style={{"transition":"0.4s", "top":"100%"}}>
@@ -269,12 +283,14 @@ function Home(props) {
                             </div>
                         </div>
 
-                        <div className="col-md-3 mb-4">
-                            <div className="card border-radius-0 border-0 cursor-pointer position-relative overflow-hidden" onMouseOver={viewTeamDescription} onMouseOut={hideTeamDescription}>
-                                <img src={prototype} className="w-100" />
-                                <div className="bg-color-2 px-5 py-4">
-                                    <p className="text-color-2 text-center font-weight-600 mb-1">Jaesther Macanas</p>
-                                    <p className="text-color-2 text-center fst-italic font-size-70 mb-2">General Operations Head</p>
+                        <div className="col-sm-6 col-lg-3 pb-4">
+                            <div className="card border-radius-0 border-0 cursor-pointer position-relative overflow-hidden h-100" onMouseOver={viewTeamDescription} onMouseOut={hideTeamDescription}>
+                                <div className="d-flex flex-column h-100">
+                                    <img src={prototype} className="w-100" alt="prototype" />
+                                    <div className="bg-color-2 px-5 py-4 flex-fill">
+                                        <p className="text-color-2 text-center font-weight-600 mb-1">Jaesther Macanas</p>
+                                        <p className="text-color-2 text-center fst-italic font-size-70 mb-2">General Operations Head</p>
+                                    </div>
                                 </div>
 
                                 <div className="team-description position-absolute bg-color-2 w-100 h-100 p-4" style={{"transition":"0.4s", "top":"100%"}}>
@@ -294,8 +310,8 @@ function Home(props) {
                     </div>
 
                     <div className="row justify-content-center mb-5">
-                        <div className="col-md-3 mb-4">
-                            <div className="card border-radius-0 border-0 cursor-pointer position-relative overflow-hidden" onMouseOver={viewTeamDescription} onMouseOut={hideTeamDescription}>
+                        <div className="col-sm-6 col-lg-3 pb-4">
+                            <div className="card border-radius-0 border-0 cursor-pointer position-relative overflow-hidden h-100" onMouseOver={viewTeamDescription} onMouseOut={hideTeamDescription}>
                                 <div className="bg-color-2 px-5 py-3">
                                     <p className="text-color-2 text-center font-weight-600 mb-1">APEXboii</p>
                                     <p className="text-color-2 text-center fst-italic font-size-70 mb-1">Discord Mod</p>
@@ -303,8 +319,8 @@ function Home(props) {
                             </div>
                         </div>
 
-                        <div className="col-md-3 mb-4">
-                            <div className="card border-radius-0 border-0 cursor-pointer position-relative overflow-hidden" onMouseOver={viewTeamDescription} onMouseOut={hideTeamDescription}>
+                        <div className="col-sm-6 col-lg-3 pb-4">
+                            <div className="card border-radius-0 border-0 cursor-pointer position-relative overflow-hidden h-100" onMouseOver={viewTeamDescription} onMouseOut={hideTeamDescription}>
                                 <div className="bg-color-2 px-5 py-3">
                                     <p className="text-color-2 text-center font-weight-600 mb-1">Kismet1019</p>
                                     <p className="text-color-2 text-center fst-italic font-size-70 mb-1">Discord Mod</p>
@@ -312,8 +328,8 @@ function Home(props) {
                             </div>
                         </div>
 
-                        <div className="col-md-3 mb-4">
-                            <div className="card border-radius-0 border-0 cursor-pointer position-relative overflow-hidden" onMouseOver={viewTeamDescription} onMouseOut={hideTeamDescription}>
+                        <div className="col-sm-6 col-lg-3 pb-4">
+                            <div className="card border-radius-0 border-0 cursor-pointer position-relative overflow-hidden h-100" onMouseOver={viewTeamDescription} onMouseOut={hideTeamDescription}>
                                 <div className="bg-color-2 px-5 py-3">
                                     <p className="text-color-2 text-center font-weight-600 mb-1">Sunny</p>
                                     <p className="text-color-2 text-center fst-italic font-size-70 mb-1">Discord Mod</p>
@@ -326,35 +342,35 @@ function Home(props) {
 
             <div className="background-image-cover background-image-4 py-5 position-relative" style={{"zIndex":"0"}}>
                 <div id="partners" className="position-absolute invisible" style={{"top":"-100px"}}></div>
-                <div className="container py-5 mb-5">
-                    <div className="d-flex justify-content-center align-items-center flex-wrap py-5">
+                <div className="container py-4 mb-5">
+                    <div className="d-flex justify-content-center align-items-center flex-wrap pb-4 py-xl-5">
                         <div className="">
                             <a href="https://twitter.com/KaChingGaming" target="_blank">
-                                <img src={kcgPartnershipLogo} height="200" />
+                                <img src={kcgPartnershipLogo} height="200" alt="kcg partnership logo" />
                             </a>
                         </div>
 
                         <div className="px-1">
                             <a href="https://www.instagram.com/_daybreakph/" target="_blank">
-                                <img src={daybreak} height="70" />
+                                <img src={daybreak} height="70" alt="daybreak logo" />
                             </a>
                         </div>
 
                         <div className="px-3">
                             <a href="https://twitter.com/meta_donuts" target="_blank">
-                                <img src={metaD} height="170" />
+                                <img src={metaD} height="170" alt="meta d logo" />
                             </a>
                         </div>
 
                         <div className="px-3">
                             <a href="https://twitter.com/floppydrogoNFT" target="_blank">
-                                <img src={floppyDrogoLogo} height="100" />
+                                <img src={floppyDrogoLogo} height="100" alt="floppy drogo logo" />
                             </a>
                         </div>
 
                         <div className="px-3">
                             <a href="https://www.facebook.com/ininja.shop" target="_blank">
-                                <img src={ininjaLogo} height="150" />
+                                <img src={ininjaLogo} height="150" alt="ininja logo" />
                             </a>
                         </div>
                     </div>
@@ -363,7 +379,7 @@ function Home(props) {
 
             <div className="background-image-cover background-image-5 position-relative" style={{"marginTop":"-100px", "minHeight":"155px", "zIndex":"1", "backgroundPosition":"bottom"}}></div>
 
-            <div className="bg-color-1 pt-4 pb-5">
+            <div className="bg-color-1 pt-4 pb-5" style={{"marginTop":"-1px"}}>
                 <div className="container py-3">
                     <div className="text-center text-white font-weight-600 mb-3">
                         &copy; 2022 Sneakerverse | All Rights Reserved
