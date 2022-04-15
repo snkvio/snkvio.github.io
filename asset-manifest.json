@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.f7c3822a.css",
-    "main.js": "/static/js/main.efd7fa1f.js",
+    "main.css": "/static/css/main.11743e32.css",
+    "main.js": "/static/js/main.151efc8b.js",
     "static/js/787.95957579.chunk.js": "/static/js/787.95957579.chunk.js",
     "static/media/layer-2.png": "/static/media/layer-2.922f2b04a1a30a1415fa.png",
     "static/media/drip.gif": "/static/media/drip.77df0516af631cea2543.gif",
@@ -12,6 +12,7 @@
     "static/media/Joseph.png": "/static/media/Joseph.923c6d9c56187ac58a67.png",
     "static/media/roadmap.png": "/static/media/roadmap.f594494f21031f0ac2ec.png",
     "static/media/ininja-logo.png": "/static/media/ininja-logo.309522101029df2245de.png",
+    "static/media/roadmap-2.jpg": "/static/media/roadmap-2.e77e43ae0b5c27a958b5.jpg",
     "static/media/prototype.png": "/static/media/prototype.8146b7d0a4bb2b868523.png",
     "static/media/drip-2.png": "/static/media/drip-2.67d28733c5b5dec2b089.png",
     "static/media/meta-d.png": "/static/media/meta-d.3c4f2d80176b15ce1f38.png",
@@ -21,12 +22,12 @@
     "static/media/kcg-partnership-logo.png": "/static/media/kcg-partnership-logo.bca76c45889beaca220c.png",
     "static/media/drip.png": "/static/media/drip.364e7d4197ee867550dd.png",
     "index.html": "/index.html",
-    "main.f7c3822a.css.map": "/static/css/main.f7c3822a.css.map",
-    "main.efd7fa1f.js.map": "/static/js/main.efd7fa1f.js.map",
+    "main.11743e32.css.map": "/static/css/main.11743e32.css.map",
+    "main.151efc8b.js.map": "/static/js/main.151efc8b.js.map",
     "787.95957579.chunk.js.map": "/static/js/787.95957579.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f7c3822a.css",
-    "static/js/main.efd7fa1f.js"
+    "static/css/main.11743e32.css",
+    "static/js/main.151efc8b.js"
   ]
 }
