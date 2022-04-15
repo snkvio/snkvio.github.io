@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "/snkvio.github.io/static/css/main.90d280db.css",
+    "main.js": "/snkvio.github.io/static/js/main.3178e5b1.js",
+    "static/js/787.95957579.chunk.js": "/snkvio.github.io/static/js/787.95957579.chunk.js",
+    "static/media/layer-2.png": "/snkvio.github.io/static/media/layer-2.922f2b04a1a30a1415fa.png",
+    "static/media/drip.gif": "/snkvio.github.io/static/media/drip.77df0516af631cea2543.gif",
+    "static/media/layer.png": "/snkvio.github.io/static/media/layer.17e2676005988a473369.png",
+    "static/media/three-men-walking.png": "/snkvio.github.io/static/media/three-men-walking.0d367fc3c4dd13695346.png",
+    "static/media/David.PNG": "/snkvio.github.io/static/media/David.967600d6e2edfd7a066b.PNG",
+    "static/media/Carlo.png": "/snkvio.github.io/static/media/Carlo.333c90f0975765a95c18.png",
+    "static/media/Joseph.png": "/snkvio.github.io/static/media/Joseph.923c6d9c56187ac58a67.png",
+    "static/media/roadmap.png": "/snkvio.github.io/static/media/roadmap.f594494f21031f0ac2ec.png",
+    "static/media/ininja-logo.png": "/snkvio.github.io/static/media/ininja-logo.309522101029df2245de.png",
+    "static/media/prototype.png": "/snkvio.github.io/static/media/prototype.8146b7d0a4bb2b868523.png",
+    "static/media/drip-2.png": "/snkvio.github.io/static/media/drip-2.67d28733c5b5dec2b089.png",
+    "static/media/meta-d.png": "/snkvio.github.io/static/media/meta-d.3c4f2d80176b15ce1f38.png",
+    "static/media/man-walking-with-sneakers.GIF": "/snkvio.github.io/static/media/man-walking-with-sneakers.0fc8724abcde92b71e40.GIF",
+    "static/media/logo.png": "/snkvio.github.io/static/media/logo.0aacc6f162e28407ca67.png",
+    "static/media/daybreak.png": "/snkvio.github.io/static/media/daybreak.04c7468f9a775999ea6e.png",
+    "static/media/kcg-partnership-logo.png": "/snkvio.github.io/static/media/kcg-partnership-logo.bca76c45889beaca220c.png",
+    "static/media/drip.png": "/snkvio.github.io/static/media/drip.364e7d4197ee867550dd.png",
+    "index.html": "/snkvio.github.io/index.html",
+    "main.90d280db.css.map": "/snkvio.github.io/static/css/main.90d280db.css.map",
+    "main.3178e5b1.js.map": "/snkvio.github.io/static/js/main.3178e5b1.js.map",
+    "787.95957579.chunk.js.map": "/snkvio.github.io/static/js/787.95957579.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.90d280db.css",
+    "static/js/main.3178e5b1.js"
+  ]
+}
