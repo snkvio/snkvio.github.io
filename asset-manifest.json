@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.11743e32.css",
-    "main.js": "/static/js/main.151efc8b.js",
+    "main.js": "/static/js/main.e3c73eef.js",
     "static/js/787.95957579.chunk.js": "/static/js/787.95957579.chunk.js",
     "static/media/layer-2.png": "/static/media/layer-2.922f2b04a1a30a1415fa.png",
     "static/media/drip.gif": "/static/media/drip.77df0516af631cea2543.gif",
@@ -9,6 +9,7 @@
     "static/media/three-men-walking.png": "/static/media/three-men-walking.0d367fc3c4dd13695346.png",
     "static/media/David.PNG": "/static/media/David.967600d6e2edfd7a066b.PNG",
     "static/media/Carlo.png": "/static/media/Carlo.333c90f0975765a95c18.png",
+    "static/media/Gian.png": "/static/media/Gian.6c87b31f7b2d74e823a7.png",
     "static/media/Joseph.png": "/static/media/Joseph.923c6d9c56187ac58a67.png",
     "static/media/roadmap.png": "/static/media/roadmap.f594494f21031f0ac2ec.png",
     "static/media/ininja-logo.png": "/static/media/ininja-logo.309522101029df2245de.png",
@@ -23,11 +24,11 @@
     "static/media/drip.png": "/static/media/drip.364e7d4197ee867550dd.png",
     "index.html": "/index.html",
     "main.11743e32.css.map": "/static/css/main.11743e32.css.map",
-    "main.151efc8b.js.map": "/static/js/main.151efc8b.js.map",
+    "main.e3c73eef.js.map": "/static/js/main.e3c73eef.js.map",
     "787.95957579.chunk.js.map": "/static/js/787.95957579.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.11743e32.css",
-    "static/js/main.151efc8b.js"
+    "static/js/main.e3c73eef.js"
   ]
 }
