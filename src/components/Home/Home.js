@@ -1,4 +1,7 @@
 import * as ReactDOM from 'react-dom';
+import connectToMetaMask from "../../utils/connectToMetaMask";
+
+// images
 import logo from '../../img/logo.png';
 import manWalkingWithSneakers from '../../img/man-walking-with-sneakers.GIF';
 import threeMenWalking from '../../img/three-men-walking.png';
@@ -7,6 +10,7 @@ import roadmap2 from '../../img/roadmap-2.jpg';
 import carlo from '../../img/Carlo.png';
 import david from '../../img/David.PNG';
 import joseph from '../../img/Joseph.png';
+import gian from '../../img/Gian.png';
 import prototype from '../../img/prototype.png';
 import floppyDrogoLogo from '../../img/floppy-drogo-logo.png';
 import ininjaLogo from '../../img/ininja-logo.png';
@@ -23,6 +27,11 @@ function Home(props) {
         ReactDOM.findDOMNode(e.currentTarget).getElementsByClassName('team-description')[0].style.top = "100%";
     };
 
+    let mint = async function(e) {
+        await connectToMetaMask();
+
+    };
+
     return (
         <div className="home">
             {/* Navbar*/}
@@ -33,11 +42,11 @@ function Home(props) {
                     </a>
 
                     <div className="d-flex d-lg-none">
-                        <a className="btn btn-custom-1 d-flex align-items-center justify-content-center me-3" href="https://twitter.com/snkvrse" target="_blank" style={{"width":"36px", "height":"36px"}}>
+                        <a className="btn btn-custom-1 d-flex align-items-center justify-content-center me-3" href="https://twitter.com/snkvrse" target="_blank" rel="noreferrer" style={{"width":"36px", "height":"36px"}}>
                             <i className="fab fa-twitter font-size-120"></i>
                         </a>
 
-                        <a className="btn btn-custom-1 d-flex align-items-center justify-content-center me-3" href="https://discord.com/invite/hNgnnjRSnD" target="_blank" style={{"width":"36px", "height":"36px"}}>
+                        <a className="btn btn-custom-1 d-flex align-items-center justify-content-center me-3" href="https://discord.com/invite/hNgnnjRSnD" target="_blank" rel="noreferrer" style={{"width":"36px", "height":"36px"}}>
                             <i className="fab fa-discord font-size-120"></i>
                         </a>
 
@@ -47,12 +56,12 @@ function Home(props) {
                     <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
                         <ul className="navbar-nav">
                             <li className="nav-item px-2 px-xl-3 d-none d-lg-block">
-                                <a className="btn btn-custom-1 d-flex align-items-center justify-content-center" href="https://twitter.com/snkvrse" target="_blank">
+                                <a className="btn btn-custom-1 d-flex align-items-center justify-content-center" href="https://twitter.com/snkvrse" target="_blank" rel="noreferrer">
                                     <i className="fab fa-twitter font-size-140"></i>
                                 </a>
                             </li>
                             <li className="nav-item px-2 px-xl-3 d-none d-lg-block">
-                                <a className="btn btn-custom-1 d-flex align-items-center justify-content-center" href="https://discord.com/invite/hNgnnjRSnD" target="_blank">
+                                <a className="btn btn-custom-1 d-flex align-items-center justify-content-center" href="https://discord.com/invite/hNgnnjRSnD" target="_blank" rel="noreferrer">
                                     <i className="fab fa-discord font-size-140"></i>
                                 </a>
                             </li>
@@ -89,7 +98,7 @@ function Home(props) {
 
                                 <div className="text-center mb-4 mb-md-5">
                                     <button className="btn btn-custom-2 py-3 px-5">
-                                        <div className="px-2 px-md-5 py-md-1 font-weight-500 font-size-140">MINT NOW</div>
+                                        <div className="px-2 px-md-5 py-md-1 font-weight-500 font-size-140" onClick={mint}>MINT NOW</div>
                                     </button>
                                 </div>
 
@@ -162,7 +171,7 @@ function Home(props) {
 
                             <div className="team-description position-absolute w-100 h-100 bg-color-1 p-4 overflow-auto" style={{"transition":"0.4s", "top":"100%"}}>
                                 <div className="d-flex justify-content-end mb-3">
-                                    <a className="btn btn-custom-1 d-flex align-items-center justify-content-center" href="https://twitter.com/NftSeph" target="_blank">
+                                    <a className="btn btn-custom-1 d-flex align-items-center justify-content-center" href="https://twitter.com/NftSeph" target="_blank" rel="noreferrer">
                                         <i className="fab fa-twitter font-size-140"></i>
                                     </a>
                                 </div>
@@ -178,7 +187,7 @@ function Home(props) {
                     <div className="col-sm-6 col-lg-3 pb-4">
                         <div className="card border-radius-0 border-0 cursor-pointer position-relative overflow-hidden h-100" onMouseOver={viewTeamDescription} onMouseOut={hideTeamDescription}>
                             <div className="d-flex flex-column h-100">
-                                <img src={joseph} className="w-100" alt="sneakerverse gian caringal" />
+                                <img src={gian} className="w-100" alt="sneakerverse gian caringal" />
                                 <div className="bg-color-1 p-4 flex-fill">
                                     <p className="text-white text-center font-weight-600 mb-1">Gian Gary Caringal</p>
                                     <p className="text-white text-center fst-italic font-size-70 mb-2">Core &amp; Artist</p>
@@ -187,7 +196,7 @@ function Home(props) {
 
                             <div className="team-description position-absolute w-100 h-100 bg-color-1 p-4 overflow-auto" style={{"transition":"0.4s", "top":"100%"}}>
                                 <div className="d-flex justify-content-end mb-3">
-                                    <a className="btn btn-custom-1 d-flex align-items-center justify-content-center" href="https://twitter.com/nftgsquared" target="_blank">
+                                    <a className="btn btn-custom-1 d-flex align-items-center justify-content-center" href="https://twitter.com/nftgsquared" target="_blank" rel="noreferrer">
                                         <i className="fab fa-twitter font-size-140"></i>
                                     </a>
                                 </div>
@@ -212,7 +221,7 @@ function Home(props) {
 
                             <div className="team-description position-absolute w-100 h-100 bg-color-1 p-4 overflow-auto" style={{"transition":"0.4s", "top":"100%"}}>
                                 <div className="d-flex justify-content-end mb-3">
-                                    <a className="btn btn-custom-1 d-flex align-items-center justify-content-center" href="https://twitter.com/HidroxNFTs" target="_blank">
+                                    <a className="btn btn-custom-1 d-flex align-items-center justify-content-center" href="https://twitter.com/HidroxNFTs" target="_blank" rel="noreferrer">
                                         <i className="fab fa-twitter font-size-140"></i>
                                     </a>
                                 </div>
@@ -237,7 +246,7 @@ function Home(props) {
 
                             <div className="team-description position-absolute w-100 h-100 bg-color-1 p-4 overflow-auto" style={{"transition":"0.4s", "top":"100%"}}>
                                 <div className="d-flex justify-content-end mb-3">
-                                    <a className="btn btn-custom-1 d-flex align-items-center justify-content-center" href="#" target="_blank">
+                                    <a className="btn btn-custom-1 d-flex align-items-center justify-content-center" href="#" target="_blank" rel="noreferrer">
                                         <i className="fab fa-twitter font-size-140"></i>
                                     </a>
                                 </div>
@@ -270,7 +279,7 @@ function Home(props) {
 
                                 <div className="team-description position-absolute bg-color-2 w-100 h-100 p-4" style={{"transition":"0.4s", "top":"100%"}}>
                                     <div className="d-flex justify-content-end mb-3">
-                                        <a className="btn btn-custom-3 d-flex align-items-center justify-content-center" href="https://twitter.com/ceejaysmm" target="_blank">
+                                        <a className="btn btn-custom-3 d-flex align-items-center justify-content-center" href="https://twitter.com/ceejaysmm" target="_blank" rel="noreferrer">
                                             <i className="fab fa-twitter font-size-140"></i>
                                         </a>
                                     </div>
@@ -295,7 +304,7 @@ function Home(props) {
 
                                 <div className="team-description position-absolute bg-color-2 w-100 h-100 p-4" style={{"transition":"0.4s", "top":"100%"}}>
                                     <div className="d-flex justify-content-end mb-3">
-                                        <a className="btn btn-custom-3 d-flex align-items-center justify-content-center" href="https://twitter.com/xiao_nly" target="_blank">
+                                        <a className="btn btn-custom-3 d-flex align-items-center justify-content-center" href="https://twitter.com/xiao_nly" target="_blank" rel="noreferrer">
                                             <i className="fab fa-twitter font-size-140"></i>
                                         </a>
                                     </div>
@@ -345,31 +354,31 @@ function Home(props) {
                 <div className="container py-4 mb-5">
                     <div className="d-flex justify-content-center align-items-center flex-wrap pb-4 py-xl-5">
                         <div className="">
-                            <a href="https://twitter.com/KaChingGaming" target="_blank">
+                            <a href="https://twitter.com/KaChingGaming" target="_blank" rel="noreferrer">
                                 <img src={kcgPartnershipLogo} height="200" alt="kcg partnership logo" />
                             </a>
                         </div>
 
                         <div className="px-1">
-                            <a href="https://www.instagram.com/_daybreakph/" target="_blank">
+                            <a href="https://www.instagram.com/_daybreakph/" target="_blank" rel="noreferrer">
                                 <img src={daybreak} height="70" alt="daybreak logo" />
                             </a>
                         </div>
 
                         <div className="px-3">
-                            <a href="https://twitter.com/meta_donuts" target="_blank">
+                            <a href="https://twitter.com/meta_donuts" target="_blank" rel="noreferrer">
                                 <img src={metaD} height="170" alt="meta d logo" />
                             </a>
                         </div>
 
                         <div className="px-3">
-                            <a href="https://twitter.com/floppydrogoNFT" target="_blank">
+                            <a href="https://twitter.com/floppydrogoNFT" target="_blank" rel="noreferrer">
                                 <img src={floppyDrogoLogo} height="100" alt="floppy drogo logo" />
                             </a>
                         </div>
 
                         <div className="px-3">
-                            <a href="https://www.facebook.com/ininja.shop" target="_blank">
+                            <a href="https://www.facebook.com/ininja.shop" target="_blank" rel="noreferrer">
                                 <img src={ininjaLogo} height="150" alt="ininja logo" />
                             </a>
                         </div>
@@ -386,10 +395,10 @@ function Home(props) {
                     </div>
 
                     <div className="d-flex justify-content-center">
-                        <a className="btn btn-custom-1 mx-3 d-flex align-items-center justify-content-center" href="https://twitter.com/snkvrse" target="_blank">
+                        <a className="btn btn-custom-1 mx-3 d-flex align-items-center justify-content-center" href="https://twitter.com/snkvrse" target="_blank" rel="noreferrer">
                             <i className="fab fa-twitter font-size-140"></i>
                         </a>
-                        <a className="btn btn-custom-1 mx-3 d-flex align-items-center justify-content-center" href="https://discord.com/invite/hNgnnjRSnD" target="_blank">
+                        <a className="btn btn-custom-1 mx-3 d-flex align-items-center justify-content-center" href="https://discord.com/invite/hNgnnjRSnD" target="_blank" rel="noreferrer">
                             <i className="fab fa-discord font-size-140"></i>
                         </a>
                     </div>
