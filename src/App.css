@@ -26,6 +26,9 @@
 .bg-color-2 {
   background-color: #e2e2e2;
 }
+.bg-color-3 {
+  background-color: #becd11;
+}
 .btn-custom-1 {
   background-color: #becd11;
   color: #1c1c1c;
@@ -62,6 +65,22 @@
   box-shadow: 0px 0px 10px 5px rgba(255,255,255,0.75);
   -webkit-box-shadow: 0px 0px 10px 5px rgba(255,255,255,0.75);
   -moz-box-shadow: 0px 0px 10px 5px rgba(255,255,255,0.75);
+}
+.btn-custom-4 {
+  background-color: #becd11;
+  color: #1c1c1c;
+}
+.btn-custom-4:hover, .btn-custom-4:focus, .btn-custom-4:active {
+  background-color: #8d990c;
+  color: #1c1c1c;
+}
+.btn-custom-5 {
+  background-color: #1c1c1c;
+  color: #ffffff;
+}
+.btn-custom-5:hover, .btn-custom-5:focus, .btn-custom-5:active {
+  background-color: #000000;
+  color: #ffffff;
 }
 .background-image-1 {
   background-image: url("img/drip.png");

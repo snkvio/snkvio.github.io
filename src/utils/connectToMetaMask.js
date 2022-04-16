@@ -1,8 +1,8 @@
-import web3 from './web3'
-
 const connectToMetaMask = async () => {
+    let address = false;
+
     if (window.ethereum) {
-        window.ethereum.request({method: "eth_requestAccounts"}).then(async (accounts) => {
+        await window.ethereum.request({method: "eth_requestAccounts"}).then(async (accounts) => {
             // Get network ID
             let n = parseInt(window.ethereum.chainId);
 
@@ -10,11 +10,11 @@ const connectToMetaMask = async () => {
                 await switchNetwork();
             }
 
-            return accounts[0];
+            address = accounts[0];
         }).catch((err) => console.log(err))
-    } else {
-        return false;
     }
+
+    return address;
 };
 
 const switchNetwork = async () => {

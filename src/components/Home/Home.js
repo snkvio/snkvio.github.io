@@ -1,5 +1,11 @@
 import * as ReactDOM from 'react-dom';
+import {Modal} from 'bootstrap'
+import {useState, useEffect} from "react";
+
+// blockchain
 import connectToMetaMask from "../../utils/connectToMetaMask";
+import web3 from "../../utils/web3"
+import contract from "../../utils/contract";
 
 // images
 import logo from '../../img/logo.png';
@@ -19,18 +25,76 @@ import metaD from '../../img/meta-d.png';
 import daybreak from '../../img/daybreak.png';
 
 function Home(props) {
+    const [inputsValues, setInputsValues] = useState({
+        quantity: 1,
+    })
+
+    let modalQuantity;
+    let modalProcessing;
+    let modalMinted;
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setInputsValues({ ...inputsValues, [name]: value });
+    }
     let viewTeamDescription = function(e) {
         ReactDOM.findDOMNode(e.currentTarget).getElementsByClassName('team-description')[0].style.top = "0";
     };
-
     let hideTeamDescription = function(e) {
         ReactDOM.findDOMNode(e.currentTarget).getElementsByClassName('team-description')[0].style.top = "100%";
     };
-
-    let mint = async function(e) {
-        await connectToMetaMask();
-
+    let showQuantityModal = function() {
+        modalQuantity.show();
+        // modalProcessing.show();
+        // modalMinted.show();
     };
+    let mint = async function(e) {
+        let address = await connectToMetaMask();
+
+        if(address) {
+            let owner;
+            let cost = 0;
+            let quantity = inputsValues.quantity;
+
+            await contract.methods.owner().call()
+                .then(function(data){
+                    owner = data;
+                });
+
+            if(web3.utils.toChecksumAddress(address) !== web3.utils.toChecksumAddress(owner)) {
+                await contract.methods.cost().call()
+                    .then(function(data){
+                        cost = parseFloat(web3.utils.fromWei(data, 'ether'));
+                    });
+            }
+
+            await contract.methods.mint(quantity).send({
+                from: address,
+                value: web3.utils.toWei((cost * quantity).toString(), 'ether')
+            }).on('transactionHash', function(hash) {
+                modalQuantity.hide();
+                modalProcessing.show();
+            }).on('error', function(error) {
+                alert(error.message);
+            }).on('receipt', function(receipt) {
+                let tokenId = receipt.events.Transfer.returnValues.tokenId;
+
+                document.getElementById('minted-message').innerHTML = "You have successfully minted your NFT" + ((quantity > 1) ? "s" : "") + ".";
+                document.getElementById('opensea').href = "https://testnets.opensea.io/assets/mumbai/" + contract.options.address + "/" + tokenId;
+
+                modalProcessing.hide();
+                modalMinted.show();
+            });
+        } else {
+            alert("Invalid address");
+        }
+    };
+
+    useEffect(function() {
+        modalQuantity = new Modal(document.getElementById('modal-quantity'));
+        modalProcessing = new Modal(document.getElementById('modal-processing'));
+        modalMinted = new Modal(document.getElementById('modal-minted'));
+    });
 
     return (
         <div className="home">
@@ -98,7 +162,7 @@ function Home(props) {
 
                                 <div className="text-center mb-4 mb-md-5">
                                     <button className="btn btn-custom-2 py-3 px-5">
-                                        <div className="px-2 px-md-5 py-md-1 font-weight-500 font-size-140" onClick={mint}>MINT NOW</div>
+                                        <div className="px-2 px-md-5 py-md-1 font-weight-500 font-size-140" onClick={showQuantityModal}>MINT NOW</div>
                                     </button>
                                 </div>
 
@@ -401,6 +465,56 @@ function Home(props) {
                         <a className="btn btn-custom-1 mx-3 d-flex align-items-center justify-content-center" href="https://discord.com/invite/hNgnnjRSnD" target="_blank" rel="noreferrer">
                             <i className="fab fa-discord font-size-140"></i>
                         </a>
+                    </div>
+                </div>
+            </div>
+
+            <div className="modal fade" id="modal-quantity" tabIndex="-1" aria-hidden="true">
+                <div className="modal-dialog modal-dialog-centered">
+                    <div className="modal-content bg-color-1">
+                        <div className="modal-body p-5">
+                            <p className="text-center text-white fw-bold font-size-130">How many tokens do you want to mint?</p>
+
+                            <div className="mb-4 pb-3 px-4">
+                                <label htmlFor="recipient-name" className="col-form-label text-white text-center w-100">Quantity</label>
+                                <input type="number" className="form-control fw-bold text-center font-size-200" name="quantity" step="1" min="1" max="20" value={inputsValues.quantity} onChange={handleInputChange} />
+                            </div>
+
+                            <div className="text-center">
+                                <button type="button" className="btn btn-custom-5 fw-bold px-5 py-3 font-size-110 mx-1" data-bs-dismiss="modal">Close</button>
+                                <button type="button" className="btn btn-custom-4 fw-bold px-5 py-3 font-size-110 mx-1" onClick={mint}>MINT</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="modal fade" id="modal-processing" tabIndex="-1" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+                <div className="modal-dialog modal-dialog-centered">
+                    <div className="modal-content bg-color-1">
+                        <div className="modal-body p-5">
+                            <div className="text-center py-4">
+                                <div className="spinner-grow bg-white mb-3" style={{"width":"5rem", "height":"5rem"}} role="status">
+                                    <span className="visually-hidden">Loading...</span>
+                                </div>
+                                <p className="mb-0 fw-bold font-size-110 text-white mb-2">Processing your transaction</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="modal fade" id="modal-minted" tabIndex="-1" aria-hidden="true">
+                <div className="modal-dialog modal-dialog-centered">
+                    <div className="modal-content bg-color-1">
+                        <div className="modal-body p-5">
+                            <div className="text-center py-4">
+                                <i className="fas fa-check-circle font-size-600 text-color-1 mb-3"></i>
+                                <p className="mb-0 fw-bold font-size-110 text-white mb-4 pb-2" id="minted-message">You have successfully minted your NFT.</p>
+
+                                <a href="#" target="_blank" rel="noreferrer" className="btn btn-custom-4 fw-bold px-5 py-3 font-size-110" id="opensea">View on OpenSea</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
