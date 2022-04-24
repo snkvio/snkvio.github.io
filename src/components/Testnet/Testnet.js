@@ -250,17 +250,17 @@ function Home(props) {
                             <div className="w-100">
                                 <h2 className="text-center text-color-1 font-weight-900 font-size-250 font-size-sm-360 font-size-xl-420 font-size-xxl-470 mb-4 pb-md-2">SNEAKERVERSE</h2>
 
-                                <div className="text-center mb-2">
-                                    {/*<button className="btn btn-custom-2 py-3 px-5">*/}
-                                    {/*    <div className="px-2 px-md-5 py-md-1 font-weight-500 font-size-140" onClick={handleShowModalQuantity}>MINT NOW</div>*/}
-                                    {/*</button>*/}
-
-                                    <button className="btn py-3 px-5" style={{"backgroundColor":"#ebe1e1", "color":"#1c1c1c", "borderRadius":"30px"}}>
-                                        <div className="px-2 px-md-5 py-md-1 font-weight-500 font-size-140">MINTING SOON</div>
+                                <div className="text-center mb-4 pb-3">
+                                    <button className="btn btn-custom-2 py-3 px-5">
+                                        <div className="px-2 px-md-5 py-md-1 font-weight-500 font-size-140" onClick={handleShowModalQuantity}>MINT NOW</div>
                                     </button>
+
+                                    {/*<button className="btn py-3 px-5" style={{"backgroundColor":"#ebe1e1", "color":"#1c1c1c", "borderRadius":"30px"}}>*/}
+                                    {/*    <div className="px-2 px-md-5 py-md-1 font-weight-500 font-size-140">MINTING SOON</div>*/}
+                                    {/*</button>*/}
                                 </div>
 
-                                <p className="text-center text-white font-weight-500 font-size-90 font-size-md-100 font-size-xl-110 font-size-xxl-120 fst-italic mb-0 mb-4 pb-3">Pre-sale will start on April 28</p>
+                                {/*<p className="text-center text-white font-weight-500 font-size-90 font-size-md-100 font-size-xl-110 font-size-xxl-120 fst-italic mb-0 mb-4 pb-3">Pre-sale will start on April 28</p>*/}
 
                                 <h1 className="text-center text-color-1 font-weight-500 font-size-160 font-size-md-180 font-size-xl-210 font-size-xxl-250 mb-5">3,333 NFTs ready to bridge the sneakerheads to the metaverse.</h1>
                             </div>

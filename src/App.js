@@ -2,6 +2,7 @@ import './App.css';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from './components/Home/Home'
+import Testnet from './components/Testnet/Testnet'
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
         <div className="app h-100" style={{"backgroundColor": "rgb(244, 246, 248)"}}>
           <Routes>
             <Route path="/" element={<Home/>} />
+            <Route path="/testnet" element={<Testnet/>} />
           </Routes>
         </div>
       </Router>
