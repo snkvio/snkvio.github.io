@@ -1,0 +1,39 @@
+{
+  "name": "SNKV #2752",
+  "description": "Sneakerverse is an NFT collection made to represent the sneaker scene and streetwear fashion in the Philippines, created by a group of people with the same love for the culture.",
+  "image": "ipfs://NewUriToReplace/2752.png",
+  "dna": "09f519a6b9aefd1ae90edcd84f097f0d9a1e0e73",
+  "edition": 2752,
+  "date": 1650807752615,
+  "attributes": [
+    {
+      "trait_type": "Background",
+      "value": "Organic Neon Green"
+    },
+    {
+      "trait_type": "Skin",
+      "value": "Dark"
+    },
+    {
+      "trait_type": "Socks",
+      "value": "Neon Green"
+    },
+    {
+      "trait_type": "Shoes",
+      "value": "Retro Fours T.S"
+    },
+    {
+      "trait_type": "Pants",
+      "value": "Blue Track Pants"
+    },
+    {
+      "trait_type": "Shirt",
+      "value": "Brown Tee"
+    },
+    {
+      "trait_type": "Accessories",
+      "value": "Sling Bag"
+    }
+  ],
+  "compiler": "HashLips Art Engine"
+}
