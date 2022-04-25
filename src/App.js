@@ -9,8 +9,8 @@ function App() {
       <Router basename={process.env.PUBLIC_URL}>
         <div className="app h-100" style={{"backgroundColor": "rgb(244, 246, 248)"}}>
           <Routes>
-            <Route path="/" element={<Home/>} />
-            <Route path="/testnet" element={<Testnet/>} />
+            <Route path='/' exact element={<Home/>}/>
+            <Route path="/testnet" exact element={<Testnet/>} />
           </Routes>
         </div>
       </Router>

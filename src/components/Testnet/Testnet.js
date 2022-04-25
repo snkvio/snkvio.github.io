@@ -1,5 +1,5 @@
 import * as ReactDOM from 'react-dom';
-import { Button, Modal } from 'react-bootstrap'
+import { Modal } from 'react-bootstrap'
 import { useState, useEffect } from "react";
 
 // blockchain
