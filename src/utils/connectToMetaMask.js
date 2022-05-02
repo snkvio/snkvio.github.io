@@ -6,7 +6,7 @@ const connectToMetaMask = async () => {
             // Get network ID
             let n = parseInt(window.ethereum.chainId);
 
-            if(n !== 80001) {
+            if(n !== 137) {
                 await switchNetwork();
             }
 
@@ -38,22 +38,22 @@ const addNetwork = async () => {
             method: 'wallet_addEthereumChain',
             params: [
                 {
-                    // chainId: '0x89',
-                    // chainName:'Polygon',
-                    // rpcUrls:['https://polygon-rpc.com'],
-                    // blockExplorerUrls:['https://polygonscan.com/'],
-                    // nativeCurrency: {
-                    //     symbol:'MATIC',
-                    //     decimals: 18
-                    // }
-                    chainId: '0x13881',
-                    chainName:'Polygon Testnet',
-                    rpcUrls:['https://rpc-mumbai.maticvigil.com/'],
-                    blockExplorerUrls:['https://mumbai-explorer.matic.today/'],
+                    chainId: '0x89',
+                    chainName:'Polygon',
+                    rpcUrls:['https://polygon-rpc.com'],
+                    blockExplorerUrls:['https://polygonscan.com/'],
                     nativeCurrency: {
                         symbol:'MATIC',
                         decimals: 18
                     }
+                    // chainId: '0x13881',
+                    // chainName:'Polygon Testnet',
+                    // rpcUrls:['https://rpc-mumbai.maticvigil.com/'],
+                    // blockExplorerUrls:['https://mumbai-explorer.matic.today/'],
+                    // nativeCurrency: {
+                    //     symbol:'MATIC',
+                    //     decimals: 18
+                    // }
                 }
             ]
         });

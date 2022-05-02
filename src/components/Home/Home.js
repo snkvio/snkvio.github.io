@@ -60,6 +60,43 @@ function Home(props) {
             let owner;
             let cost = 0;
             let quantity = parseInt(inputsValues.quantity);
+            let stop = false;
+
+            let addressMintedBalance = 0;
+            await contract.methods.addressMintedBalance(web3.utils.toChecksumAddress(address)).call()
+                .then(function(data) {
+                    addressMintedBalance = parseInt(data);
+                });
+
+            let nftPerAddressLimit = 0;
+            await contract.methods.nftPerAddressLimit().call()
+                .then(function(data) {
+                    nftPerAddressLimit = parseInt(data);
+                });
+
+            let nftPerPublicAddressLimit = 0;
+            await contract.methods.nftPerPublicAddressLimit().call()
+                .then(function(data) {
+                    nftPerPublicAddressLimit = parseInt(data);
+                });
+
+            let maxSupply = 0;
+            await contract.methods.maxSupply().call()
+                .then(function(data) {
+                    maxSupply = parseInt(data);
+                });
+
+            let totalSupply = 0;
+            await contract.methods.totalSupply().call()
+                .then(function(data) {
+                    totalSupply = parseInt(data);
+                });
+
+            if(totalSupply + quantity > maxSupply) {
+                handleShowModalError();
+                document.getElementById('error-message').innerHTML = "Max NFT limit exceeded.";
+                stop = true;
+            }
 
             let isOG = false;
             await contract.methods.isOG(web3.utils.toChecksumAddress(address)).call()
@@ -75,12 +112,28 @@ function Home(props) {
                     });
             }
 
+            if(isOG || isWhitelisted) {
+                if(addressMintedBalance + quantity > nftPerAddressLimit) {
+                    handleShowModalError();
+                    document.getElementById('error-message').innerHTML = "Max NFT per address for " + ((isOG) ? "OG" : "Whitelisted") + " users exceeded.";
+                    stop = true;
+                }
+            }
+
             let isFreeMint = false;
             if(!isOG && !isWhitelisted) {
                 await contract.methods.isFreeMint(web3.utils.toChecksumAddress(address)).call()
                     .then(function(data) {
                         isFreeMint = data;
                     });
+            }
+
+            if(isFreeMint) {
+                if(addressMintedBalance + quantity > 1) {
+                    handleShowModalError();
+                    document.getElementById('error-message').innerHTML = "Max NFT per address for Free Mint users exceeded.";
+                    stop = true;
+                }
             }
 
             if(isOG) {
@@ -102,6 +155,12 @@ function Home(props) {
                     .then(function(data) {
                         cost = parseFloat(web3.utils.fromWei(data, 'ether'));
                     });
+
+                if(addressMintedBalance + quantity > nftPerPublicAddressLimit) {
+                    handleShowModalError();
+                    document.getElementById('error-message').innerHTML = "Max NFT per address for Public users exceeded.";
+                    stop = true;
+                }
             }
 
             await contract.methods.owner().call()
@@ -114,7 +173,6 @@ function Home(props) {
                 cost = 0;
             }
 
-            let stop = false;
             if(isOG) {
                 await contract.methods.oGCanMint().call()
                     .then(function(data){
@@ -174,7 +232,7 @@ function Home(props) {
                 handleShowModalMinted();
 
                 document.getElementById('minted-message').innerHTML = "You have successfully minted your NFT" + ((quantity > 1) ? "s" : "") + ".";
-                document.getElementById('opensea').href = "https://testnets.opensea.io/assets/mumbai/" + contract.options.address + "/" + tokenId;
+                document.getElementById('opensea').href = "https://opensea.io/assets/matic/" + contract.options.address + "/" + tokenId;
             });
         } else {
             handleShowModalError();
@@ -250,17 +308,19 @@ function Home(props) {
                             <div className="w-100">
                                 <h2 className="text-center text-color-1 font-weight-900 font-size-250 font-size-sm-360 font-size-xl-420 font-size-xxl-470 mb-4 pb-md-2">SNEAKERVERSE</h2>
 
-                                <div className="text-center mb-2">
-                                    {/*<button className="btn btn-custom-2 py-3 px-5">*/}
-                                    {/*    <div className="px-2 px-md-5 py-md-1 font-weight-500 font-size-140" onClick={handleShowModalQuantity}>MINT NOW</div>*/}
+                                <div className="text-center mb-4 pb-3">
+                                    <button className="btn btn-custom-2 py-3 px-5">
+                                        <div className="px-2 px-md-5 py-md-1 font-weight-500 font-size-140" onClick={handleShowModalQuantity}>MINT NOW</div>
+                                    </button>
+
+                                    {/*<button className="btn py-3 px-5" style={{"backgroundColor":"#ebe1e1", "color":"#1c1c1c", "borderRadius":"30px"}}>*/}
+                                    {/*    <div className="px-2 px-md-5 py-md-1 font-weight-500 font-size-140">MINTING SOON</div>*/}
                                     {/*</button>*/}
 
-                                    <button className="btn py-3 px-5" style={{"backgroundColor":"#ebe1e1", "color":"#1c1c1c", "borderRadius":"30px"}}>
-                                        <div className="px-2 px-md-5 py-md-1 font-weight-500 font-size-140">MINTING SOON</div>
-                                    </button>
+                                    <p className="text-center text-white fst-italic font-size-80 mt-2 mb-0">Currently supports MetaMask wallets</p>
                                 </div>
 
-                                <p className="text-center text-white font-weight-500 font-size-90 font-size-md-100 font-size-xl-110 font-size-xxl-120 fst-italic mb-0 mb-4 pb-3">Pre-sale will start on April 28</p>
+                                {/*<p className="text-center text-white font-weight-500 font-size-90 font-size-md-100 font-size-xl-110 font-size-xxl-120 fst-italic mb-0 mb-4 pb-3">Pre-sale will start on April 28</p>*/}
 
                                 <h1 className="text-center text-color-1 font-weight-500 font-size-160 font-size-md-180 font-size-xl-210 font-size-xxl-250 mb-5">3,333 NFTs ready to bridge the sneakerheads to the metaverse.</h1>
                             </div>

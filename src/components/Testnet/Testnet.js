@@ -60,6 +60,43 @@ function Home(props) {
             let owner;
             let cost = 0;
             let quantity = parseInt(inputsValues.quantity);
+            let stop = false;
+
+            let addressMintedBalance = 0;
+            await contract.methods.addressMintedBalance(web3.utils.toChecksumAddress(address)).call()
+                .then(function(data) {
+                    addressMintedBalance = data;
+                });
+
+            let nftPerAddressLimit = 0;
+            await contract.methods.nftPerAddressLimit().call()
+                .then(function(data) {
+                    nftPerAddressLimit = data;
+                });
+
+            let nftPerPublicAddressLimit = 0;
+            await contract.methods.nftPerPublicAddressLimit().call()
+                .then(function(data) {
+                    nftPerPublicAddressLimit = data;
+                });
+
+            let maxSupply = 0;
+            await contract.methods.maxSupply().call()
+                .then(function(data) {
+                    maxSupply = data;
+                });
+
+            let totalSupply = 0;
+            await contract.methods.totalSupply().call()
+                .then(function(data) {
+                    totalSupply = data;
+                });
+
+            if(totalSupply + quantity > maxSupply) {
+                handleShowModalError();
+                document.getElementById('error-message').innerHTML = "Max NFT limit exceeded.";
+                stop = true;
+            }
 
             let isOG = false;
             await contract.methods.isOG(web3.utils.toChecksumAddress(address)).call()
@@ -75,12 +112,28 @@ function Home(props) {
                     });
             }
 
+            if(isOG || isWhitelisted) {
+                if(addressMintedBalance + quantity > nftPerAddressLimit) {
+                    handleShowModalError();
+                    document.getElementById('error-message').innerHTML = "Max NFT per address for " + ((isOG) ? "OG" : "Whitelisted") + " users exceeded.";
+                    stop = true;
+                }
+            }
+
             let isFreeMint = false;
             if(!isOG && !isWhitelisted) {
                 await contract.methods.isFreeMint(web3.utils.toChecksumAddress(address)).call()
                     .then(function(data) {
                         isFreeMint = data;
                     });
+            }
+
+            if(isFreeMint) {
+                if(addressMintedBalance + quantity > 1) {
+                    handleShowModalError();
+                    document.getElementById('error-message').innerHTML = "Max NFT per address for Free Mint users exceeded.";
+                    stop = true;
+                }
             }
 
             if(isOG) {
@@ -102,6 +155,12 @@ function Home(props) {
                     .then(function(data) {
                         cost = parseFloat(web3.utils.fromWei(data, 'ether'));
                     });
+
+                if(addressMintedBalance + quantity > nftPerPublicAddressLimit) {
+                    handleShowModalError();
+                    document.getElementById('error-message').innerHTML = "Max NFT per address for Public users exceeded.";
+                    stop = true;
+                }
             }
 
             await contract.methods.owner().call()
@@ -114,7 +173,6 @@ function Home(props) {
                 cost = 0;
             }
 
-            let stop = false;
             if(isOG) {
                 await contract.methods.oGCanMint().call()
                     .then(function(data){
